@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LedgerLift AI — an educational accounting assistant that turns everyday transactions into clear debits and credits.">
+  <title>LedgerLift AI — Accounting made simple.</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Header and responsive navigation -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="LedgerLift AI home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>LedgerLift <b>AI</b><small>Accounting made simple.</small></span></a>
+      <button class="menu-toggle" type="button" aria-controls="navigation" aria-expanded="false">Menu <span aria-hidden="true">☰</span></button>
+      <nav id="navigation" aria-label="Main navigation">
+        <a href="#home">Home</a><a href="#how-it-works">How It Works</a><a href="#pricing">Pricing</a><a href="#about">About</a><a href="#help">Help</a>
+        <button class="text-button" type="button" data-dialog="signin">Sign In</button><a class="button button-green button-small" href="#assistant">Try It Free <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <!-- Hero: all artwork is made from HTML and CSS -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot"></span> A LITTLE CLARITY. A BIG LIFT.</p>
+          <h1>Describe the Transaction.<br><span>We’ll Help You Record It Correctly.</span></h1>
+          <p class="hero-description">Turn everyday business activity into clear accounting entries. Simply describe what happened, and our AI assistant identifies the accounts involved and shows you the appropriate debits and credits.</p>
+          <ul class="benefits"><li>Easy enough for non-accountants</li><li>Understand the reasoning behind each entry</li><li>Reduce bookkeeping mistakes and save time</li></ul>
+          <a class="button button-green hero-cta" href="#assistant">Try It Free — No Credit Card Required <span aria-hidden="true">→</span></a>
+          <p class="microcopy">A smarter way to do accounting for your business.</p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="floating-tag"><span>✦</span> Less guesswork. More confidence.</div>
+          <div class="ledger-illustration">
+            <div class="illustration-heading"><span class="mini-mark">↗</span><span>Your books, simplified<small>One transaction at a time</small></span><span class="dots">•••</span></div>
+            <div class="message-bubble">“We made a $1,000 cash sale.”</div>
+            <div class="illustration-connector">↓</div>
+            <div class="mini-entry"><span class="tiny-label">FROM WORDS TO NUMBERS</span><div><b>Cash</b><strong>+$1,000</strong></div><div><b>Sales Revenue</b><strong>+$1,000</strong></div></div>
+            <div class="balanced"><span>✓</span> A clear entry. A balanced book.</div>
+          </div>
+          <div class="floating-check"><span>✓</span><div>It all adds up.<small>Built for everyday business</small></div></div>
+          <div class="art-spark">✦</div>
+        </div>
+      </div>
+    </section>
+    <!-- Interactive accounting demonstration -->
+    <section class="assistant-section section" id="assistant" aria-labelledby="assistant-heading">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">MEET YOUR ACCOUNTING SIDEKICK</p><h2>Everyday words. Clear accounting.</h2><p>Start with a transaction. Leave with a little more confidence.</p></div>
+        <div class="assistant-card">
+          <div class="assistant-topbar"><span><span class="mini-mark">✦</span> LedgerLift Assistant</span><span class="demo-badge"><span class="status-dot"></span> Interactive demo</span></div>
+          <form id="transaction-form" class="transaction-form">
+            <div class="input-heading"><label for="transaction" id="assistant-heading">Describe your transaction</label><span>Plain English welcome.</span></div>
+            <div class="suggestions" aria-label="Example transactions"><button type="button" data-example="supplies">Purchase supplies</button><button type="button" data-example="wages">Pay employee</button><button type="button" data-example="sale" class="selected" aria-pressed="true">Make a sale</button><button type="button" data-example="loan">Record a loan</button></div>
+            <textarea id="transaction" name="transaction" rows="3" required>We sold a bicycle to a customer for $1,000 cash. What is the proper accounting entry?</textarea>
+            <div class="form-bottom"><p><span aria-hidden="true">ⓘ</span> Educational prototype · Preset examples, no live AI</p><button class="button button-blue" type="submit">Get Answer <span aria-hidden="true">→</span></button></div>
+            <p id="form-message" class="form-message" role="status"></p>
+          </form>
+          <div id="results" class="results" aria-labelledby="results-heading">
+            <div class="result-heading"><h3 id="results-heading" tabindex="-1"><span class="success-icon" aria-hidden="true">✓</span> Suggested Accounting Entry</h3><span class="entry-badge">Balanced entry</span></div>
+            <div class="result-grid">
+              <div class="table-wrap"><table><caption class="sr-only">Suggested journal entry in US dollars</caption><thead><tr><th scope="col">Account</th><th scope="col">Debit</th><th scope="col">Credit</th></tr></thead><tbody id="entry-rows"><tr><th scope="row">Cash</th><td>$1,000</td><td></td></tr><tr><th scope="row">Sales Revenue</th><td></td><td>$1,000</td></tr></tbody><tfoot><tr><th scope="row">Total</th><td id="debit-total">$1,000</td><td id="credit-total">$1,000</td></tr></tfoot></table></div>
+              <aside class="explanation"><h4><span aria-hidden="true">✧</span> Explanation</h4><p id="explanation-text">Cash is debited because the business received $1,000 in cash. Sales Revenue is credited because the business earned $1,000 from the sale.</p><span class="explanation-note">A little understanding goes a long way.</span></aside>
+            </div>
+            <div class="inventory-card" id="inventory"><h3>Inventory / Cost of Goods Sold</h3><p>If the bicycle was held in inventory, a second entry would also normally be required to record the cost of the bicycle. Since the bicycle’s original inventory cost was not provided, the entry would be:</p><div class="table-wrap"><table><caption class="sr-only">Additional inventory entry</caption><thead><tr><th scope="col">Account</th><th scope="col">Debit</th><th scope="col">Credit</th></tr></thead><tbody><tr><th scope="row">Cost of Goods Sold</th><td>[Cost of Bicycle]</td><td></td></tr><tr><th scope="row">Inventory</th><td></td><td>[Cost of Bicycle]</td></tr></tbody></table></div></div>
+            <div class="important"><span aria-hidden="true">ⓘ</span><p><strong>Important</strong> The debit and credit amounts must always balance.</p></div>
+          </div>
+        </div>
+        <p class="assistant-footnote">Made for learning. Always review suggested entries for your business’s circumstances.</p>
+      </div>
+    </section>
+    <!-- Three-step product overview -->
+    <section class="section how-section" id="how-it-works"><div class="container"><div class="section-heading"><p class="eyebrow">FROM “WHAT HAPPENED?” TO “GOT IT.”</p><h2>How It Works</h2><p>Get accurate accounting help in just a few simple steps.</p></div><div class="steps"><article class="step"><span class="step-number">01</span><h3>Describe the transaction</h3><p>Tell us what happened in plain English.</p></article><article class="step"><span class="step-number">02</span><h3>AI analyzes the transaction</h3><p>The system identifies the appropriate accounts and accounting treatment.</p></article><article class="step"><span class="step-number">03</span><h3>Review the entry</h3><p>Receive the suggested debits, credits, and an easy-to-understand explanation.</p></article></div></div></section>
+    <!-- Concept pricing; no purchases or accounts are created -->
+    <section class="section pricing-section" id="pricing"><div class="container"><div class="section-heading"><p class="eyebrow">MORE CLARITY. LESS COMPLEXITY.</p><h2>Simple Pricing for Growing Businesses</h2><p>Start free, then choose the plan that fits your needs.</p></div><div class="pricing-grid"><article class="price-card"><p class="plan-label">A GREAT PLACE TO START</p><h3>Start Free</h3><p>Try the accounting assistant at no cost.</p><div class="price">$0<span> / to get started</span></div><ul class="benefits"><li>Explore example transactions</li><li>Clear debits and credits</li><li>Easy-to-understand explanations</li></ul><a class="button button-outline" href="#assistant">Try It Free <span aria-hidden="true">→</span></a></article><article class="price-card featured"><span class="popular">Most Popular</span><p class="plan-label">ROOM TO GROW</p><h3>Small Business Plan</h3><p>A helping hand for your everyday books.</p><div class="price">$19<span>/month</span></div><ul class="benefits"><li>Unlimited transaction assistance</li><li>Saved transaction history</li><li>Additional accounting guidance</li></ul><button class="button button-green" type="button" data-dialog="plan">Get Started <span aria-hidden="true">→</span></button></article></div><p class="assistant-footnote">Illustrative pricing for this educational prototype. No payment required.</p></div></section>
+    <!-- About and help -->
+    <section class="section" id="about"><div class="container about-grid"><div><p class="eyebrow">BUILT FOR PEOPLE, NOT JUST NUMBERS</p><h2>Accounting Help Without the Accounting Jargon</h2></div><div><p>LedgerLift AI is designed to help small business owners and employees better understand everyday bookkeeping. Instead of requiring users to know accounting terminology, they can simply describe what happened and receive an easy-to-understand suggested accounting entry.</p><p class="disclaimer">LedgerLift AI is an educational demonstration and does not provide professional accounting, tax, or financial advice. Consult a qualified accounting professional for decisions affecting your business.</p></div></div></section>
+    <section class="help-section" id="help"><div class="container help-inner"><div><p class="eyebrow">A LITTLE HELP GETTING STARTED</p><h2>Your first entry is one click away.</h2><p>Choose an example, then select Get Answer to explore the entry and its explanation.</p></div><a class="button button-blue" href="#assistant">Try the assistant <span aria-hidden="true">→</span></a></div></section>
+  </main>
+  <!-- Footer and accessible informational dialog -->
+  <footer><div class="container"><div class="footer-main"><a class="brand" href="#home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>LedgerLift <b>AI</b><small>Accounting made simple.</small></span></a><nav aria-label="Footer navigation"><a href="#about">About</a><a href="#how-it-works">How It Works</a><a href="#pricing">Pricing</a><a href="#help">Help</a><button type="button" data-dialog="signin">Sign In</button></nav></div><div class="footer-bottom"><p>© 2026 LedgerLift AI. All rights reserved.</p><div><button type="button" data-dialog="privacy">Privacy</button><button type="button" data-dialog="terms">Terms</button><button type="button" data-dialog="contact">Contact</button></div></div></div></footer>
+  <dialog id="info-dialog" aria-labelledby="dialog-title"><h2 id="dialog-title"></h2><p id="dialog-text"></p><form method="dialog"><button class="button button-blue">Got it</button></form></dialog>
+</body>
+</html>
